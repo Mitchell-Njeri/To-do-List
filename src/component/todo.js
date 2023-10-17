@@ -1,29 +1,47 @@
-import {useState} from 'react';
+import { useState } from 'react';
+// import Button from 'react-bootstrap/Button';
+// import Form from 'react-bootstrap/Form';
 
-const Todo =()=> {
-    const  [text,setText]=useState("");
 
-    // const handlechange=(event)=>{
-    //     setText(event.target.value);
-    // }
-    const handleSubmit=(event)=>{
+const Todo = () => {
+    const [text, setText] = useState("");
+    const [list, setList] = useState([]);
+
+    const handlechange = (event) => {
+        setText(event.target.value);
+    }
+    const handleSubmit = (event) => {
         event.preventDefault();
-        console.log (`${text}`)
+        let temp = list;
+        temp.push(text);
+        setList(temp); 
+        console.log(list);
+        setText("");
+        // console.log (`${text}`)
     }
 
-return (
-    <div>
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
         <label>
             List:
             <br></br>
-            <input type = "text" value = {text} onChange={(event) => setText(event.target.value)}/>
+            <input type = "text" value = {text} onChange={handlechange}/>
         </label>
         <label>
             <button type = "submit">Add Items</button>
         </label>
         </form>
-    </div>
-)
-}
+        {list.map((event)=>
+        (<h3>{event}</h3>))} */}
+            
+    return(
+        <div>
+    
+        </div>
+    )
+        
+    
+    }
+
+
+
 export default Todo;
